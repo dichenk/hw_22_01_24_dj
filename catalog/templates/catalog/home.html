@@ -1,62 +1,24 @@
 {% extends 'catalog/base.html' %}
 {% load static %}
-
+{% load library %}
 
 {% block content %}
     <div class="container">
-    {% for object in object_list %}
-        <div class="spinner-border text-danger" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-border text-danger" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-    {% endfor %}
-        </div>
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h1 class="display-4">Oleg's store</h1>
         <p class="lead">Oleg's store - это отличный вариант покупки свежих продуктов в Турции и Казахстане</p>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-4">
-                <div id="list-example" class="list-group">
-                    {% for object in object_list %}
-                        <a class="list-group-item list-group-item-action" href="#{{ object.name }}">{{ object.name }}</a>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="col-8">
-                <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-                    {% for object in object_list %}
-                        <h4 id="{{ object.name }}">{{ object.name }}</h4>
-                        <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
-                            <div class="card-header">The best {{ object.name }} in the world</div>
-                            <div class="card-body">
-                                <h5 class="card-title">{{ object.name }}</h5>
-                                <div class="spinner-grow text-danger" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-                                <p class="card-text" style="padding": 10px>{{object.info|truncatewords:30}}</p>
-                                <p class="card-text">Стоимость: {{ object.price}} тенге
-                                <div class="spinner-grow text-warning" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-                                </p>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        <div>
+
+
         {% for object in object_list %}
-       <div class="spinner-grow text-light" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div><div class="spinner-grow text-light" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
+<p>{{ object.name }}</p>
+<p>{{object.info|truncatewords:30}}</p>
+<p>{{ object.price}}</p>
+            <img src="{{ MEDIA_URL }}{{ object.image}}" >
+            <img src="{{ object.image|lololobebebe }}" >
+            <img src="{% dzhaga_dzhaga object.image %}" >
+
+
+
         {% endfor %}
     </div>
-
+</div>
 {% endblock %}
